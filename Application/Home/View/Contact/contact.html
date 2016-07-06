@@ -1,0 +1,91 @@
+<extend name="Common/base"/>
+<block name="contacts">
+    <div class="container-fluid main-container contact" id="main-container">
+        <div class="row top-title">
+            <div class="col-md-12">
+                <h1 class="page-title">
+                    给我留言
+                </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 post-container">
+                <div class="post-content">
+                    <div class="ds-thread" data-thread-key="750" data-author-key="1" data-title="给我留言"
+                         data-url="contact.php">
+                    </div>
+                    <div id="ds-ssr">
+                        <ol id="commentlist">
+                            <volist name="comments" id="vo">
+                                <li class="comment even thread-even depth-1" id="li-comment-11325">
+                                    <article id="comment-11325" class="comment">
+                                        <footer class="comment-meta">
+                                            <cite class="comment-author vcard">
+                                                <span class="fn">
+                                                <a href="" rel='external nofollow' class='url'>{$vo.name}</a>
+                                                </span>on<a rel="nofollow" href="">
+                                                <time pubdate datetime="2015-01-06T00:15:56+00:00">
+                                                    {$vo.comment_time|date='Y-m-d H:i:s', ###}
+                                                </time>
+                                            </a>
+                                                <span class="says">
+                                                    said:
+                                                </span>
+                                            </cite>
+                                        </footer>
+                                        <div class="comment-content">
+                                            <p>
+                                                {$vo.content}
+                                            </p>
+                                        </div>
+                                    </article>
+                                </li>
+                            </volist>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 post-container">
+                <div class="post-content">
+                    <form method="post" action="{:U('Contact/addComment')}" id="form1" class="contact-form">
+                        <div>
+                            <span><label>姓名*</label></span>
+                           <span>
+                               <input name="name" type="text" class="textbox">
+                           </span>
+                        </div>
+                        <div>
+                            <span><label>标题*</label></span>
+                           <span>
+                             <input name="title" type="text" class="textbox">
+                           </span>
+                        </div>
+                        <div>
+                           <span><label>邮箱*</label>
+                           </span>
+                           <span>
+                              <input name="email" type="email" class="textbox">
+                           </span>
+                        </div>
+                        <div>
+                            <span><label>内容*</label></span>
+                          <span>
+                            <textarea name="content" class="textbox">
+                            </textarea>
+                          </span>
+                        </div>
+                        <div>
+                          <span>
+                            <input type="submit" value="提交">
+                          </span>
+                        </div>
+                    </form>
+                </div>
+                <div class="meta-box">
+                </div>
+            </div>
+        </div>
+    </div>
+</block>

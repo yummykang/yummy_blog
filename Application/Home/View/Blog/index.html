@@ -1,0 +1,77 @@
+<extend name="Common/base"/>
+<block name="blog">
+<div class="container-fluid main-container" id="main-container">
+    <div class="row">
+        <div class="col-md-12 top-title">
+            <h2 class="page-title">
+                博客文章
+            </h2>
+        </div>
+    </div>
+    <volist name="list" id="vo">
+        <div class="row">
+            <div class="col-md-12 post-container">
+                <h2 class="post-title">
+                    <a href="{:U('Blog/content', array('id'=>$vo['id']))}" title="">{$vo.title}</a>
+                </h2>
+                <div class="meta-box">
+                <span class="m-post-date">
+                  <i class="fa fa-calendar-o">
+                  </i>
+                  {$vo.add_time|date='Y-m-d H:i:s', ###}
+                </span>
+                <span class="comments-link">
+                  <a href="" class="ds-thread-count" data-thread-key="9500">
+                      <i class="fa fa-comments-o">
+                      </i>
+                      留言
+                  </a>
+                </span>
+                </div>
+                <div class="post-content">
+                    <p>
+                        {$vo.content}
+                    </p>
+                </div>
+                <div class="meta-box">
+                <span class="cat-links">
+                  <i class="fa fa-navicon">
+                  </i>
+                  <b>
+                      分类:
+                  </b>
+                  <a href="{:U('Blog/index',array('category'=>$vo['category_id']))}">
+                      {$vo.category}
+                  </a>
+                </span>
+                <span class="tag-links">
+                  <i class="fa fa-tags">
+                  </i>
+                  <b>
+                      标签:
+                  </b>
+                  <a href="{:U('Blog/index', array('label'=>$vo['label_id']))}" rel="tag">
+                      {$vo.label}
+                  </a>
+                </span>
+                </div>
+            </div>
+        </div>
+    </volist>
+    <!--分页进入第二页，一页多少可分配-->
+    <div style="float: right;">
+        <ul>
+            {$page}
+        </ul>
+    </div>
+    <!--评论内容-->
+    <div class="row page-comments-container">
+        <div class="col-md-12">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+    </div>
+</div>
+</block>

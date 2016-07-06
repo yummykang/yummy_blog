@@ -1,0 +1,86 @@
+<extend name="Common/base"/>
+<block name="articles">
+    <!--主要内容 -->
+    <div class="container-fluid main-container" id="main-container">
+        <div class="row top-title">
+            <div class="col-md-12">
+                <h1 class="page-title">
+                    最新文章
+                </h1>
+            </div>
+        </div>
+        <!--main Start-->
+        <volist name="articles" id="vo">
+            <div class="row">
+                <div class="col-md-12 post-container">
+                    <h2 class="post-title">
+                        <a href="{:U('Blog/content', array('id'=>$vo['id']))}" title="">{$vo.title}</a>
+                    </h2>
+                    <div class="meta-box">
+                <span class="m-post-date">
+                  <i class="fa fa-calendar-o">
+                  </i>
+                  {$vo.add_time}
+                </span>
+                <span class="comments-link">
+                  <a href="" class="ds-thread-count" data-thread-key="9500">
+                      <i class="fa fa-comments-o">
+                      </i>
+                      留言
+                  </a>
+                </span>
+                    </div>
+                    <div class="post-content">
+                        <p>
+                            {$vo.content}
+                        </p>
+                    </div>
+                    <div class="meta-box">
+                <span class="cat-links">
+                  <i class="fa fa-navicon">
+                  </i>
+                  <b>
+                      分类:
+                  </b>
+                  <a href="{:U('Blog/index',array('category'=>$vo['category_id']))}">
+                      {$vo.category}
+                  </a>
+                </span>
+                <span class="tag-links">
+                  <i class="fa fa-tags">
+                  </i>
+                  <b>
+                      标签:
+                  </b>
+                  <a href="{:U('Blog/index', array('label'=>$vo['label_id']))}" rel="tag">
+                      {$vo.label}
+                  </a>
+                </span>
+                    </div>
+                </div>
+            </div>
+        </volist>
+        <!--更多内容-->
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="page-title">
+                    <a href="blog.html" title="">更多内容</a>
+                </h2>
+            </div>
+        </div>
+        <!--跳转至博客页面-->
+        <div class="row">
+            <div class="col-md-12 post-container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <a class="btn btn-primary home-browser-more-btn" href="{:U('Blog/index')}">
+                            <span>浏览更多文章</span>
+                        </a>
+                    </div>
+                    <div class="col-md-8">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>

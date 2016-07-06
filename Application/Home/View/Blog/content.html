@@ -1,0 +1,60 @@
+<extend name="Common/base"/>
+<block name="content">
+<div class="container-fluid main-container" id="main-container">
+    <div class="row top-title">
+        <div class="col-md-12">
+            <h1 class="page-title right">
+                <a href="{:U('Blog/index')}">博客</a> >> <a href="{:U('Blog/index', array('category'=>$article['category_id']))}">{$article.category}</a>
+            </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 post-container">
+            <h2 class="post-title">
+                <a href="javascript:void(0);" rel="bookmark">
+                    {$article.title}
+                </a>
+            </h2>
+            <div class="meta-box">
+            </div>
+            <div class="post-content">
+                <hr/>
+                <section>
+                    <div class="main-container">
+                        <div class="row">
+                            {$article.content}
+                            <div id="player3" class="aplayer"></div>
+                        </div>
+                    </div>
+                </section>
+                <div class="meta-box">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="__STATIC__/leaves/assets/APlayer/dist/APlayer.min.js"></script>
+<script src="__STATIC__/leaves/assets/APlayer/demo/demo.js"></script>
+<script>
+    /*banner 初始化*/
+    $(window).load(function() {
+        $('#slider').nivoSlider({
+            effect: 'random',        // 过渡效果
+            controlNav: false,       // 是否显示图片导航控制按钮（,2,3... ）
+            pauseOnHover: true,      // 鼠标县浮时是否停止动画
+            manualAdvance: false,    // 是否手动切换
+            animSpeed: 100,          // 图片过渡时间
+            pauseTime: 2000,         // 图片显示时间
+            pauseOnHover: false,
+            manualAdvance: false,
+        });
+    });
+    $(document).ready(function(){
+        $('body').show();
+        $('.version').text(NProgress.version);
+        NProgress.start();
+        setTimeout(function() { NProgress.done(); $('.fade').removeClass('out'); }, 1000);
+    })
+
+</script>
+</block>
