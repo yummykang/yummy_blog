@@ -19,9 +19,9 @@ class LoginController extends Controller
 
     public function login() {
         if (IS_POST) {
-            $admin = M('admin')->where('username = "'.$_POST['username'].'"')->find();
+            $admin = M('admin')->where('username = "'.I('username').'"')->find();
             if ($admin) {
-                if ($admin[password] != $_POST['password']) {
+                if ($admin[password] != I('password')) {
                     $this->error('密码错误');
                 } else {
                     session('uid',$admin[id]);
@@ -31,5 +31,10 @@ class LoginController extends Controller
                 $this->error('账号不存在');
             }
         }
+    }
+
+    public function logout() {
+        unset($_SESSION['uid']);
+        $this->success('注销成功', 'toLogin');
     }
 }
