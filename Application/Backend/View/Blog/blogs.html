@@ -1,0 +1,47 @@
+<extend name="Common/base"/>
+<block name="blogs">
+<section class="alert">
+	<form method="link" action="{:U('Blog/toEdit')}">
+		 <button class="green">添加</button>
+	</form>
+</section>
+<section class="content">
+	<section class="widget">
+		<header>
+			<span class="icon">&#59160;</span>
+			<hgroup>
+				<h1>博客</h1>
+				<h2>博客列表</h2>
+			</hgroup>
+		</header>
+		<div class="content">
+			<table id="myTable" border="0" width="100">
+				<thead>
+					<tr>
+						<th>id</th>
+						<th>标题</th>
+						<th>内容</th>
+						<th>分类</th>
+						<th>标签</th>
+						<th>作者</th>
+						<th>添加时间</th>
+					</tr>
+				</thead>
+					<tbody>
+						<volist name="articles" id="vo">
+							<tr>
+								<td><input type="checkbox" />{$vo.id}</td>
+								<td>{$vo.title}</td>
+								<td>{$vo.content}</td>
+								<td>{$vo.category}</td>
+								<td>{$vo.label}</td>
+								<td>{$vo.author}</td>
+								<td>{$vo.add_time|date='Y-m-d H:i:s', ###}</td>
+							</tr>
+						</volist>
+					</tbody>
+				</table>
+		</div>
+	</section>
+</section>
+</block>

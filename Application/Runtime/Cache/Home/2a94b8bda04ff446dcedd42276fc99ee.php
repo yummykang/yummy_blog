@@ -78,7 +78,7 @@
     <div class="left_menu">
         <ul class="menu_link">
             <li>
-                <a href="" class="simptip-position-right simptip-smooth simptip-movable"
+                <a href="<?php echo U('Backend/Login/toLogin');?>" class="simptip-position-right simptip-smooth simptip-movable"
                    data-toggle="tooltip" data-placement="right" title="登陆">
                     <img src="/Public/static/leaves/assets/img/login.png">
               <span>

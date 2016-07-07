@@ -1,0 +1,50 @@
+<extend name="Common/base"/>
+<block name="blog_edit">
+<section class="alert">
+	<div class="green">	
+		<p>Hi Lee, you have <a href="#">3 new pages</a> and <a href="#">16 comments</a> to approve, better get going!</p>
+		<span class="close">&#10006;</span>
+	</div>
+</section>
+<section class="content">
+	<section class="widget" style="min-height:300px">
+		<header>
+			<span class="icon">&#59160;</span>
+			<hgroup>
+				<h1>博客</h1>
+			</hgroup>
+		</header>
+		<div class="content">
+			<form method="post" action="{:U('Blog/edit')}">
+				<div class="field-wrap">
+					<input type="text" value="标题" name="title"/>
+				</div>
+				<div class="field-wrap">
+					<input type="text" value="作者" name="author"/>
+				</div>
+				<div class="field-wrap">
+					<label>分类</label>
+					<select name="category">
+						<volist name="categorys" id="vo">
+							<option value="{$vo.category_id}">{$vo.category}</option>
+						</volist>
+					</select>
+				</div>
+				<div class="field-wrap">
+					<label>标签</label>
+					<select name="label">
+						<volist name="labels" id="vo">
+							<option value="{$vo.label_id}">{$vo.label}</option>
+						</volist>
+					</select>
+				</div>
+				<div class="field-wrap wysiwyg-wrap">
+					<textarea class="post" rows="5" name="content"></textarea>
+				</div>
+				<button type="submit" class="green">保存</button>
+				<button onclick="history.go(-1);">返回</button>
+			</form>
+		</div>
+	</section>
+</section>
+</block>

@@ -1,0 +1,50 @@
+<extend name="Common/base"/>
+<block name="index">
+<section class="content">
+
+    <div class="widget-container">
+        <section class="widget small">
+            <header>
+                <span class="icon">&#59168;</span>
+                <hgroup>
+                    <h1>最新评论</h1>
+                    <h2>What they're saying</h2>
+                </hgroup>
+            </header>
+            <div class="content no-padding timeline">
+                <volist name="comments" id="vo">
+                    <div class="tl-post comments">
+                        <span class="icon">&#59168;</span>
+                        <p>
+                            <a href="#">{$vo.name} says:</a> {$vo.content}
+                            <span class="reply"><input type="text" value="Respond to comment..."/></span>
+                        </p>
+                    </div>
+                </volist>
+                <span class="show-more"><a href="{:U('Index/index', array('all'=>1))}">More</a></span>
+            </div>
+        </section>
+
+        <section class="widget 	small">
+            <header>
+                <span class="icon">&#128319;</span>
+                <hgroup>
+                    <h1>快捷入口</h1>
+                    <h2>Speed things up</h2>
+                </hgroup>
+            </header>
+            <div class="content">
+                <div class="field-wrap">
+                    <input type="text" value="Title" name="title"/>
+                </div>
+                <div class="field-wrap">
+                    <textarea id="quick_post" rows="5" name="content"></textarea>
+                </div>
+                <button type="submit" class="green">保存</button>
+            </div>
+        </section>
+    </div>
+    <div class="widget-container">
+    </div>
+</section>
+</block>
